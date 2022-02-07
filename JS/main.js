@@ -1,0 +1,1 @@
+pageGeneration.generatePage("main");
