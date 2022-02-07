@@ -15,7 +15,9 @@ class pageGeneration{
         `;
         }
         else if (target.toLowerCase() === "starlinks") {
-            container.innerHTML = ``;
+            container.innerHTML = `<div id="navBar"class="menuElements">
+            <a class="navButton" onclick="pageGeneration.generatePage('main')">&lt;</a>
+            </div>`;
         }
         else {
             pageGeneration.generatePage("main");
