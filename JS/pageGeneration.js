@@ -21,18 +21,29 @@ class pageGeneration{
                 <p>${target[0].toUpperCase()+target.substring(1)}s</p>
             </div>
             <hr>
-            <div id="itemHeader" class="resultItem">
+            <div class="resultItem itemHeader">
             <p>ID</p>
-            <p>Starlink name</p>
-            <p>Launched</p>
+            <p>Satellite name</p>
+            <p>Launch date</p>
             </div>
             <div id="itemsContainer" class="menuElements">
             
+            </div>
+            <div id="pageNav" class="resultItem itemHeader">
+
             </div>`;
             dataHandling.getData(target);
         }
         else {
             pageGeneration.generatePage("main");
         }
+    }
+    static generatePageNav(start,end) {
+        const navContainer = document.getElementById('pageNav');
+        navContainer.innerHTML+=`
+        <a class="navButton" onclick="pageGeneration.generatePage('main')">&lt;</a>
+        <a class="navButton" onclick="pageGeneration.generatePage('main')">&lt;</a>
+        <a class="navButton" onclick="pageGeneration.generatePage('main')">&lt;</a>
+        `
     }
 };
