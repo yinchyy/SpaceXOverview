@@ -8,22 +8,23 @@ class pageGeneration{
             </div>
             <hr>
             <div class="menuElements">
-                <a class="categoryButton" onclick="pageGeneration.generatePage('starlinks')">Starlinks</a>
+                <a class="categoryButton" onclick="pageGeneration.generatePage('starlink')">Starlinks</a>
                 <a class="categoryButton" onclick="pageGeneration.generatePage('rockets')">Rockets</a>
                 <a class="categoryButton" onclick="pageGeneration.generatePage('tesla')">Tesla in space</a>
             </div>
         `;
         }
-        else if (target.toLowerCase() === "starlinks") {
+        else if (target.toLowerCase() === "starlink") {
             container.innerHTML = `
             <div id="navBar" class="menuElements">
                 <a class="navButton" onclick="pageGeneration.generatePage('main')">&lt;</a>
-                <p>${target[0].toUpperCase()+target.substring(1)}</p>
+                <p>${target[0].toUpperCase()+target.substring(1)}s</p>
             </div>
             <hr>
             <div id="itemsContainer" class="menuElements">
 
             </div>`;
+            dataHandling.getData(target);
         }
         else {
             pageGeneration.generatePage("main");
