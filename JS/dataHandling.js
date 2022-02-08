@@ -21,13 +21,18 @@ class dataHandling{
             maxIndex = data.length - 1;
             elemIndex = maxIndex - (maxIndex % 10);
         }
-        for (elemIndex; elemIndex <= maxIndex;++elemIndex) {
+        let className = "resultItem";
+        for (elemIndex; elemIndex <= maxIndex; ++elemIndex) {
+            if (elemIndex === maxIndex) {
+                className = "resultItem lastItem";
+            }
                 itemsContainer.innerHTML += `
-                <div class="resultItem">
+                <div class="${className}">
                 <p>${data[elemIndex].spaceTrack.OBJECT_ID}</p>
                 <p>${data[elemIndex].spaceTrack.OBJECT_NAME}</p>
                 <p>${data[elemIndex].spaceTrack.LAUNCH_DATE}</p>
                 </div>`;
-            }
+        }
+        pageGeneration.generatePageNav(elemIndex + 1, maxIndex + 1);
     }
 };
