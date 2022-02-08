@@ -21,8 +21,13 @@ class pageGeneration{
                 <p>${target[0].toUpperCase()+target.substring(1)}s</p>
             </div>
             <hr>
+            <div id="itemHeader" class="resultItem">
+            <p>ID</p>
+            <p>Starlink name</p>
+            <p>Launched</p>
+            </div>
             <div id="itemsContainer" class="menuElements">
-
+            
             </div>`;
             dataHandling.getData(target);
         }

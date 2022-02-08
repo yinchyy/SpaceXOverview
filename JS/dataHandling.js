@@ -15,7 +15,9 @@ class dataHandling{
             for (let elem of data) {
                 document.getElementById("itemsContainer").innerHTML += `
                 <div class="resultItem">
+                <p>${elem.spaceTrack.OBJECT_ID}</p>
                 <p>${elem.spaceTrack.OBJECT_NAME}</p>
+                <p>${elem.spaceTrack.LAUNCH_DATE}</p>
                 </div>`;
                 if (++i >= 10) {
                     break;
