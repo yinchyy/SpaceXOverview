@@ -33,6 +33,6 @@ class dataHandling{
                 <p>${data[elemIndex].spaceTrack.LAUNCH_DATE}</p>
                 </div>`;
         }
-        pageGeneration.generatePageNav(elemIndex + 1, maxIndex + 1);
+        pageGeneration.generatePageNav(pageNumber, Math.floor(data.length/10));
     }
 };
