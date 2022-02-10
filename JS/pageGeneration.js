@@ -34,6 +34,26 @@ class pageGeneration{
             </div>`;
             dataHandling.getData(target);
         }
+        else if (target.toLowerCase() === "rockets") {
+            container.innerHTML = `
+            <div id="navBar" class="menuElements">
+                <a class="navButton" onclick="pageGeneration.generatePage('main')">&lt;</a>
+                <p>${target[0].toUpperCase()+target.substring(1)}</p>
+            </div>
+            <hr>
+            <div class="resultItem itemHeader">
+            <p>Name</p>
+            <p>Launch date</p>
+            <p>Active</p>
+            </div>
+            <div id="itemsContainer" class="menuElements">
+            
+            </div>
+            <div id="pageNav" class="resultItem itemHeader">
+
+            </div>`;
+            dataHandling.getData(target);
+        }
         else {
             pageGeneration.generatePage("main");
         }
