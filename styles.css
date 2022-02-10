@@ -90,7 +90,7 @@ hr {
   background-color: #1a1d24;
   margin-bottom: 1px;
 }
-.lastItem {
+#itemsContainer > .resultItem:last-child {
   margin-bottom: 0px;
 }
 .resultItem > p {
