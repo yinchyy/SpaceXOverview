@@ -38,7 +38,7 @@ class pageGeneration{
             container.innerHTML = `
             <div id="navBar" class="menuElements">
                 <a class="navButton" onclick="pageGeneration.generatePage('main')">&lt;</a>
-                <p>${target[0].toUpperCase()+target.substring(1)}</p>
+                <p>${target[0].toUpperCase()+target.substring(1)} <small>(click on rocket to see more data)</small></p>
             </div>
             <hr>
             <div class="resultItem itemHeader">
