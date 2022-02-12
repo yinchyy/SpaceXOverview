@@ -39,7 +39,23 @@ class dataHandling{
                 <p>${data[elemIndex].name}</p>
                 <p>${data[elemIndex].first_flight}</p>
                 <p>${data[elemIndex].active}</p>
-                <p>test</p>
+                <div>
+                <p>Height: ${data[elemIndex].height.meters}m</p>
+                <p>Diameter: ${data[elemIndex].diameter.meters}m</p>
+                <p>Mass: ${data[elemIndex].mass.kg}kg</p>
+                </div>
+                <div>
+                <p>Launch price: $${data[elemIndex].cost_per_launch}</p>
+                <img width="150" height="150" src="${data[elemIndex].flickr_images[0]}" referrerpolicy="no-referrer" alt="${data[elemIndex].name} image"/>
+                </div>
+                <div>
+                <p>Engine</p>
+                <p>Type: ${data[elemIndex].engines.type}</p>
+                <p>Thrust in vacuum: ${data[elemIndex].engines.thrust_vacuum.kN}kN</p>
+                <p>Thrust on sea level: ${data[elemIndex].engines.thrust_sea_level.kN}kN</p>
+                <p>Thrust to weight ratio: ${data[elemIndex].engines.thrust_to_weight}</p>
+                </div>
+                <p class="description">${data[elemIndex].description}</p>
                 </div>`;
             }
             for (const elem of document.querySelectorAll(`#itemsContainer>.${className}`)) {
