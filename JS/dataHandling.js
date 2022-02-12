@@ -39,7 +39,32 @@ class dataHandling{
                 <p>${data[elemIndex].name}</p>
                 <p>${data[elemIndex].first_flight}</p>
                 <p>${data[elemIndex].active}</p>
+                <p>test</p>
                 </div>`;
+            }
+            for (const elem of document.querySelectorAll(`#itemsContainer>.${className}`)) {
+                elem.addEventListener('click', (e) => {
+                    try {
+                        if (e.target !== e.currentTarget) {
+                            throw new Error("Child element clicked.");
+                        }
+
+                        if (e.target.className.includes(" unfolded")) {
+                            e.target.className = e.target.className.replace(" unfolded", "");
+                        }
+                        else {
+                            e.target.className += " unfolded";
+                        }
+                    }
+                    catch (err) {
+                        if (e.currentTarget.className.includes(" unfolded")) {
+                            e.currentTarget.className = e.currentTarget.className.replace(" unfolded", "");
+                        }
+                        else {
+                            e.currentTarget.className += " unfolded";
+                        }
+                    }
+                });
             }
         }
         pageGeneration.generatePageNav(pageNumber, Math.floor(data.length/10),target);
