@@ -58,13 +58,13 @@ class pageGeneration{
             pageGeneration.generatePage("main");
         }
     }
-    static generatePageNav(start,end) {
+    static generatePageNav(start,end,target) {
         const navContainer = document.getElementById('pageNav');
         navContainer.innerHTML = '';
         if (start > 0) {
             if (start > 1) {
                 navContainer.innerHTML += `
-                <a class="navButton" onclick="dataHandling.printData(dataHandling.data,0)">&lt;&lt;</a>
+                <a class="navButton" onclick="dataHandling.printData(dataHandling.data,0,'${target}')">&lt;&lt;</a>
                  `;    
             }
             else {
@@ -73,7 +73,7 @@ class pageGeneration{
                 `;
             }
         navContainer.innerHTML += `
-        <a class="navButton" onclick="dataHandling.printData(dataHandling.data,${start - 1})">&lt;</a>
+        <a class="navButton" onclick="dataHandling.printData(dataHandling.data,${start - 1},'${target}')">&lt;</a>
         `;
         }
         else {
@@ -87,11 +87,11 @@ class pageGeneration{
          `;
         if (start < end) {
             navContainer.innerHTML += `
-            <a class="navButton" onclick="dataHandling.printData(dataHandling.data,${start + 1})">&gt;</a>
+            <a class="navButton" onclick="dataHandling.printData(dataHandling.data,${start + 1},'${target}')">&gt;</a>
             `;
             if (start < end - 1) {
                 navContainer.innerHTML += `
-                <a class="navButton" onclick="dataHandling.printData(dataHandling.data,${end})">&gt;&gt;</a>
+                <a class="navButton" onclick="dataHandling.printData(dataHandling.data,${end},'${target}')">&gt;&gt;</a>
                 `;       
             }
             else {
@@ -103,7 +103,7 @@ class pageGeneration{
         else {
           navContainer.innerHTML += `
             <a class="navButton inactive" onclick="">&gt;</a>
-            <a class="navButton inactive" onclick="dataHandling.printData(dataHandling.data,${end})">&gt;&gt;</a>
+            <a class="navButton inactive" onclick="dataHandling.printData(dataHandling.data,${end},${target})">&gt;&gt;</a>
          `;   
         }
     }

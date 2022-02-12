@@ -42,6 +42,6 @@ class dataHandling{
                 </div>`;
             }
         }
-        pageGeneration.generatePageNav(pageNumber, Math.floor(data.length/10));
+        pageGeneration.generatePageNav(pageNumber, Math.floor(data.length/10),target);
     }
 };
