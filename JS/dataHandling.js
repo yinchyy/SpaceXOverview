@@ -31,6 +31,7 @@ class dataHandling{
                 <p>${data[elemIndex].spaceTrack.LAUNCH_DATE}</p>
                 </div>`;
             }
+            pageGeneration.generatePageNav(pageNumber, Math.floor(data.length/10),target);
         }
         else if (target === "rockets") {
             for (elemIndex; elemIndex <= maxIndex; ++elemIndex) {
@@ -57,42 +58,67 @@ class dataHandling{
                 </div>
                 <p class="description">${data[elemIndex].description}</p>
                 </div>`;
-            }
-            for (const elem of document.querySelectorAll(`#itemsContainer>.${className}`)) {
-                elem.addEventListener('click', (e) => {
-                    try {
-                        if (e.target !== e.currentTarget) {
-                            throw new Error("Child element clicked.");
+                for (const elem of document.querySelectorAll(`#itemsContainer>.${className}`)) {
+                    elem.addEventListener('click', (e) => {
+                        try {
+                            if (e.target !== e.currentTarget) {
+                                throw new Error("Child element clicked.");
+                            }
+    
+                            if (e.target.className.includes(" unfolded")) {
+                                e.target.className = e.target.className.replace(" unfolded", "");
+                            }
+                            else {
+                                e.target.className += " unfolded";
+                            }
                         }
-
-                        if (e.target.className.includes(" unfolded")) {
-                            e.target.className = e.target.className.replace(" unfolded", "");
+                        catch (err) {
+                            if (e.currentTarget.className.includes(" unfolded")) {
+                                e.currentTarget.className = e.currentTarget.className.replace(" unfolded", "");
+                            }
+                            else {
+                                e.currentTarget.className += " unfolded";
+                            }
                         }
-                        else {
-                            e.target.className += " unfolded";
-                        }
-                    }
-                    catch (err) {
-                        if (e.currentTarget.className.includes(" unfolded")) {
-                            e.currentTarget.className = e.currentTarget.className.replace(" unfolded", "");
-                        }
-                        else {
-                            e.currentTarget.className += " unfolded";
-                        }
-                    }
-                    finally {
-                        const elems = document.querySelectorAll(".unfolded");
-                        if (elems.length > 1) {   
-                            for (const elem of elems) {
-                                if (elem !== e.currentTarget) {
-                                    elem.className = elem.className.replace(" unfolded", "");
+                        finally {
+                            const elems = document.querySelectorAll(".unfolded");
+                            if (elems.length > 1) {   
+                                for (const elem of elems) {
+                                    if (elem !== e.currentTarget) {
+                                        elem.className = elem.className.replace(" unfolded", "");
+                                    }
                                 }
                             }
                         }
-                    }
-                });
+                    });
+                }
             }
-        }
         pageGeneration.generatePageNav(pageNumber, Math.floor(data.length/10),target);
+        }
+        else if (target === "roadster") {
+            itemsContainer.innerHTML = `
+            <div id="pageNav" class="resultItem">
+            <p>Tesla facts</p>
+            </div>
+            <div id="teslaData" class="resultItem unfolded">
+            <p style="width:45%;height:30px;">Distance from earth: ${data.earth_distance_km}km</p>
+            <p style="width:45%;height:30px;">Distance from mars: ${data.mars_distance_km}km</p>
+            <p>Launch date: ${data.launch_date_utc.substring(0, 10)}</p>
+            <p class="description">${data.details}</p>
+            <div id="imagesContainer">
+            
+            </div>
+            </div>
+            <div class="resultItem">
+            </div>
+            `;
+            const teslaIMG = document.querySelector("#imagesContainer");
+            for (const img of data.flickr_images) {
+                teslaIMG.innerHTML += `
+                <img width="150" height="150" src="${img}" alt="Roadster photo"/>`;
+            }
+
+        }
+        
     }
 };
