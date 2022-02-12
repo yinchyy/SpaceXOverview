@@ -10,7 +10,7 @@ class pageGeneration{
             <div class="menuElements">
                 <a class="categoryButton" onclick="pageGeneration.generatePage('starlink')">Starlinks</a>
                 <a class="categoryButton" onclick="pageGeneration.generatePage('rockets')">Rockets</a>
-                <a class="categoryButton" onclick="pageGeneration.generatePage('tesla')">Tesla in space</a>
+                <a class="categoryButton" onclick="pageGeneration.generatePage('roadster')">Tesla in space</a>
             </div>
         `;
         }
@@ -54,11 +54,24 @@ class pageGeneration{
             </div>`;
             dataHandling.getData(target);
         }
+        else if (target.toLowerCase() === "roadster") {
+            container.innerHTML = `
+            <div id="navBar" class="menuElements">
+                <a class="navButton" onclick="pageGeneration.generatePage('main')">&lt;</a>
+                <p>${target[0].toUpperCase()+target.substring(1)}</p>
+            </div>
+            <hr>
+            <div id="itemsContainer" class="menuElements">
+            
+            </div>
+            `;
+            dataHandling.getData(target);
+        }
         else {
             pageGeneration.generatePage("main");
         }
     }
-    static generatePageNav(start,end,target) {
+    static generatePageNav(start, end, target) {
         const navContainer = document.getElementById('pageNav');
         navContainer.innerHTML = '';
         if (start > 0) {
