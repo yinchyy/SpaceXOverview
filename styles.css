@@ -126,3 +126,13 @@ p.description {
   width: 100%;
   height: 80px;
 }
+#imagesContainer {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#pageNav.resultItem > p {
+  display: flex;
+  justify-content: center;
+}
