@@ -64,6 +64,16 @@ class dataHandling{
                             e.currentTarget.className += " unfolded";
                         }
                     }
+                    finally {
+                        const elems = document.querySelectorAll(".unfolded");
+                        if (elems.length > 1) {   
+                            for (const elem of elems) {
+                                if (elem !== e.currentTarget) {
+                                    elem.className = elem.className.replace(" unfolded", "");
+                                }
+                            }
+                        }
+                    }
                 });
             }
         }
